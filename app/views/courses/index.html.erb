@@ -10,7 +10,7 @@
       Title
     </label>
 
-    <input type="text" id="title_b" name="q_title">
+    <input type="text" id="title_box" name="query_title">
   </div>
 
   <div>
@@ -22,11 +22,11 @@
   </div>
 
   <div>
-    <label for="">
+    <label for="department_id_box">
       Department
     </label>
 
-    <select id="" name="query_department_id">
+    <select id="department_id_box" name="query_department_id">
       <% Department.order({ :name => :asc }).each do |a_department| %>
         <option value="<%= a_department.id %>">
           <%= a_department.name %>
@@ -35,7 +35,7 @@
     </select>
   </div>
 
-  <button>
+  <button type="submit">
     Create course
   </button>
 </form>
@@ -79,12 +79,12 @@
       </td>
 
       <td>
-        <% department = department.where({ :id => course.department_id }).at(0) %>
+        <% department = Department.where({ :id => course.department_id }).at(0) %>
         <a href="/departments/<%= department.id %>"><%= department.name %></a>
       </td>
 
       <td>
-        <a href="/courses/<%= @course.id %>">
+        <a href="/courses/<%= course.id %>">
           Show details
         </a>
       </td>

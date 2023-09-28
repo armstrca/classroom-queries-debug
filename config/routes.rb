@@ -1,53 +1,47 @@
 Rails.application.routes.draw do
-  get("/", { :controller => "departments", :action => "index" })
+  get("/", { :controller => "department", :action => "index" })
 
   #------------------------------
   # Department routes
 
   get("/departments", { :controller => "department", :action => "index" })
+
+  get("/departments/:path_id", { :controller => "department", :action => "show" })
+
+  post("/insert_department", { :controller => "department", :action => "create" })
   
-  get("/departments/:path_id", { :controller => "departments", :action => "show" })
+  post("/modify_department/:path_id", { :controller => "department", :action => "update" })
 
-  post("/insert_department", { :controller => "departments", :action => "create" })
-
-  get("/departments", { :controller => "departments", :action => "index" })
-  
-  post("/modify_department/:path_id", { :controller => "departments", :action => "update" })
-
-  get("/delete_department/:path_id", { :controller => "departments", :action => "destroy" })
+  get("/delete_department/:path_id", { :controller => "department", :action => "destroy" })
 
   #------------------------------
   # Course routes
 
-  get("/courses", { :controller => "courses", :action => "index" })
+  get("/courses", { :controller => "course", :action => "index" })
   
-  get("/courses/:path_id", { :controller => "courses", :action => "show" })
+  get("/courses/:path_id", { :controller => "course", :action => "show" })
 
-  get("/insert_course", { :controller => "courses", :action => "create" })
-
-  get("/courses", { :controller => "courses_controller", :action => "index" })
+  post("/insert_course", { :controller => "course", :action => "create" })
   
-  get("/modify_course/:path_id", { :controller => "courses", :action => "update" })
+  get("/modify_course/:path_id", { :controller => "course", :action => "update" })
 
-  get("/delete_course/:path_id", { :controller => "courses", :action => "destroy" })
+  get("/delete_course/:path_id", { :controller => "course", :action => "destroy" })
 
   #------------------------------
   # Student routes
 
-  get("/students", { :controller => "students", :action => "index" })
+  get("/students", { :controller => "student", :action => "index" })
   
-  get("/students/:path_id", { :controller => "students", :action => "show" })
+  get("/students/:path_id", { :controller => "student", :action => "show" })
 
-  post("/insert_student", { :controller => "students", :action => "create" })
-
-  get("/students", { :controller => "students", :action => "index" })
+  post("/insert_student", { :controller => "student", :action => "create" })
   
-  post("/modify_student/:path_id", { :controller => "students", :action => "update" })
+  post("/modify_student/:path_id", { :controller => "student", :action => "update" })
 
-  get("/delete_student/:path_id", { :controller => "students", :action => "destroy" })
+  get("/delete_student/:path_id", { :controller => "student", :action => "destroy" })
 
   #------------------------------
 
-  post("/insert_enrollment", { :controller => "enrollments", :action => "create" })
+  post("/insert_enrollment", { :controller => "enrollment", :action => "create" })
 
 end
