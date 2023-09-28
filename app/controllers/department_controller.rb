@@ -25,8 +25,8 @@ class DepartmentController < ApplicationController
   end
 
   def update
-    the_id = params.fetch("path_id")
-    @department = Department.where({ :id => the_id }).at(0)
+    @the_id = params.fetch("path_id")
+    @department = Department.where({ :id => @the_id }).at(0)
 
     @department.name = params.fetch("query_name")
 
@@ -39,8 +39,8 @@ class DepartmentController < ApplicationController
   end
 
   def destroy
-    the_id = params.fetch("path_id")
-    @department = Department.where({ :id => the_id }).at(0)
+    @the_id = params.fetch("path_id")
+    @department = Department.where({ :id => @the_id }).at(0)
 
     @department.destroy
 
